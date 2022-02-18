@@ -19,7 +19,7 @@ public class Examen1P2_JoeCorrales_22141156 {
         do {
             switch (menu()) {
                 case 1: { opcionesUniverso(); } break;
-                case 2: { /* opcionesEscuadron(); */ } break;
+                case 2: { opcionesEscuadron(); } break;
                 case 3: { /* opcionesPersona(); */ } break;
                 case 4: { System.exit(0); } break;
             }
@@ -38,7 +38,7 @@ public class Examen1P2_JoeCorrales_22141156 {
         return opcion;
     }
     
-    private static int opcionesUniverso() {
+    private static void opcionesUniverso() {
         int opcion = myNextInt("\n[=== Menu Universo ===]"
                 + "\nOpciones: "
                 + "\n1. Crear Universo"
@@ -47,27 +47,64 @@ public class Examen1P2_JoeCorrales_22141156 {
                 + "\n4. Listar Universo"
                 + "\n0. Salir"
                 + "\nOpcion: ");
-        return opcion;
+        crudUniverso(opcion);
+    }
+    
+    private static void opcionesEscuadron() {
+        int opcion = myNextInt("\n[=== Menu Universo ===]"
+                + "\nOpciones: "
+                + "\n1. Crear Escuadron"
+                + "\n2. Modificar Escuadron"
+                + "\n3. Eliminar Escuadron"
+                + "\n4. Listar Escuadron"
+                + "\n0. Salir"
+                + "\nOpcion: ");
+        crudEscuadron(opcion);
     }
     
     private static void crudUniverso(int opcion) {
         switch(opcion) {
+            
             case 1: { 
                 System.out.println("\n[=== Creacion de Universo ===]");
                 String nombre = myNextString("Nombre del universo: ");
-                if(verificarUniverso(nombre)) universos.add(new Universo(nombre));
+                if(buscarUniverso(nombre) == null) {
+                    universos.add(new Universo(nombre));
+                    System.out.println("Universo creado!");
+                }
+                else System.out.println("Ya existe un universo con ese nombre!");
+                opcionesUniverso();
             } break;
+            
             case 2: { 
                 System.out.println("\n[=== Modificacion de Universo ===]");
                 String nombre = myNextString("Nombre del universo a modificar: ");
-                if(verificarUniverso(nombre) && (buscarUniverso(nombre) != null))
-                    buscarUniverso(nombre).setNombre(nombre);
+                if((buscarUniverso(nombre) != null)) {
+                    String nombre2 = myNextString("Nuevo nombre del universo: ");
+                    buscarUniverso(nombre).setNombre(nombre2);
+                    System.out.println("Universo modificado!");
+                }
+                opcionesUniverso();
             } break;
-            case 3: { listarUniverso(); } break;
-            case 4: { /**/ } break;
+            
+            case 3: { 
+                System.out.println("\n[=== Eliminar un universo ===]");
+                System.out.println("\nSe imprimiran los universos...");
+                listarUniverso();
+                int i = myNextInt("Ingrese la posicion a borrar: ");
+                universos.remove(i);
+                opcionesUniverso();
+            } break;
+            
+            case 4: { 
+                System.out.println("[=== Lista ===]");
+                listarUniverso();
+                opcionesUniverso();
+            } break;
+            
             case 0: { main(); } break;
-            default: 
-                System.out.println("Opcion invalida!");
+            
+            default: System.out.println("Opcion invalida!");
         }
     }
     
@@ -148,11 +185,80 @@ public class Examen1P2_JoeCorrales_22141156 {
     }
     
     private static void listarUniverso() {
-        int i = 1;
-        for (Universo universo : universos) 
+        int i = 0;
+        for (Universo universo : universos) {
             System.out.println("\n["+i+"] " + universo.toString()+"\n");
+            i++;
+        }
     }
     
+    private static void crudEscuadron(int opcion) {
+        switch(opcion) {
+            case 1: { 
+                System.out.println("\n[=== Creacion de Escuadron ===]");
+                String nombre = myNextString("Nombre del Escuadron: ");
+                String lugarBase = myNextString("Lugar de Base: ");
+                String tipoPersonaje = myNextString("Tipo de personajes: ");
+                if(buscarEscuadron(nombre) == null) escuadrones.add(new Escuadron(nombre, lugarBase, tipoPersonaje));
+                else System.out.println("Ya existe un escuadron con ese nombre!");
+                opcionesEscuadron();
+            } break;
+            
+            case 2: { 
+                System.out.println("\n[=== Modificacion de Escuadron ===]");
+                String nombre = myNextString("Nombre del escuadron a modificar: ");
+                if(buscarUniverso(nombre) != null) {
+                    String nombre2 = myNextString("Nuevo nombre del escuadron: ");
+                    String lugarBase = myNextString("Nuevo Lugar de Base: ");
+                    String tipoPersonaje = myNextString("Cambio Tipo de personajes: ");
+                    buscarEscuadron(nombre).setNombre(nombre2);
+                    buscarEscuadron(nombre).setLugarBase(lugarBase);
+                    buscarEscuadron(nombre).setTipoPersonaje(tipoPersonaje);
+                } else System.out.println("No existe!");
+                opcionesEscuadron();
+            } break;
+            
+            case 3: { 
+                System.out.println("\n[=== Eliminar un Escuadron ===]");
+                System.out.println("\nSe imprimiran los escuadrones...");
+                listarEscuadrones();
+                int i = myNextInt("Ingrese la posicion a borrar: ");
+                escuadrones.remove(i);
+                System.out.println("Escuadron eliminado!");
+                opcionesEscuadron();
+            } break;
+            
+            case 4: { 
+                System.out.println("[=== Lista ===]");
+                listarEscuadrones();
+                opcionesEscuadron();
+            } break;
+            
+            case 5: {
+                
+            } break;
+            
+            case 0: { main(); } break;
+            
+            default: System.out.println("Opcion invalida!");
+        }
+    }
+    
+    private static Escuadron buscarEscuadron(String nombre) {
+        for (Escuadron escuadron : escuadrones) {
+            if(escuadron.getNombre().equalsIgnoreCase(nombre)) 
+                return escuadron;
+        }
+        return null;
+    }
+    
+    private static void listarEscuadrones() {
+        int i = 0;
+        for (Escuadron escuadron : escuadrones) {
+            System.out.println("\n["+i+"] " + escuadron.toString()+"\n");
+            i++;
+        }
+    }
     
     
     private static boolean verificarPersonaje(String nPersonaje, ArrayList<Persona> personajes) {

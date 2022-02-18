@@ -8,11 +8,11 @@ public class Escuadron {
     protected String tipoPersonaje;
     ArrayList<Persona> miembros;
 
-    public Escuadron(String nombre, String lugarBase, String tipoPersonaje, ArrayList<Persona> miembros) {
+    public Escuadron(String nombre, String lugarBase, String tipoPersonaje) {
         this.nombre = nombre;
         this.lugarBase = lugarBase;
         this.tipoPersonaje = tipoPersonaje;
-        this.miembros = miembros;
+        this.miembros = new ArrayList<>();
     }
 
     public String getNombre() {

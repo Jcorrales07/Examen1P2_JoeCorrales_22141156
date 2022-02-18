@@ -7,8 +7,8 @@ public class Mutante extends Persona {
 
     public Mutante() {}
 
-    public Mutante(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron) {
-        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
+    public Mutante(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica) {
+        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
         factoresMutantes = new ArrayList<>();
     }
 

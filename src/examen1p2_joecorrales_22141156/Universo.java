@@ -31,7 +31,7 @@ public class Universo {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Universo { \nNombre = ").append(nombre);
-        sb.append(", \nEscuadron = ").append(escuadron);
+        sb.append(", \nEscuadrones = ").append(escuadron.size());
         sb.append("\n}");
         return sb.toString();
     }

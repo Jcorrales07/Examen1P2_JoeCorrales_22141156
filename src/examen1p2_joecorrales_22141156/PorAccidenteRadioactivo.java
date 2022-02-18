@@ -7,8 +7,8 @@ public class PorAccidenteRadioactivo extends Persona {
     public PorAccidenteRadioactivo() {}
 
     public PorAccidenteRadioactivo(String nombre, String poder, String debilidad, String tipoPersonaje,
-            int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron, int edadAlMomentoAccidente, String tipoAccidente) {
-        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
+            int fuerza, int habilidadmental, int habilidadFisica, int edadAlMomentoAccidente, String tipoAccidente) {
+        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
         this.edadAlMomentoAccidente = edadAlMomentoAccidente;
         this.tipoAccidente = tipoAccidente;
     }

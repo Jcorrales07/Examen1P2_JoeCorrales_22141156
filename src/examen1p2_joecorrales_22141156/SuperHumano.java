@@ -7,8 +7,8 @@ public class SuperHumano extends Persona {
     public SuperHumano() {}
 
     public SuperHumano(String nombre, String poder, String debilidad, String tipoPersonaje,
-            int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron, String superPoder) {
-        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
+            int fuerza, int habilidadmental, int habilidadFisica, String superPoder) {
+        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
         this.superPoder = superPoder;
     }
     

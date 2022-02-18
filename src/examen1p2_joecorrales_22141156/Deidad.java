@@ -7,8 +7,8 @@ public class Deidad extends Extraterreste {
     public Deidad() {}
 
     public Deidad(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental,
-            int habilidadFisica, boolean tieneEscuadron, boolean tieneCreyentes, String religionMitologica) {
-        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
+            int habilidadFisica, boolean tieneCreyentes, String religionMitologica) {
+        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
         this.tieneCreyentes = tieneCreyentes;
         this.religionMitologica = religionMitologica;
     }
