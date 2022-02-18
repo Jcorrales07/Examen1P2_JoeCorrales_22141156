@@ -4,6 +4,15 @@ public class PorAccidenteRadioactivo extends Persona {
     protected int edadAlMomentoAccidente;
     protected String tipoAccidente;
 
+    public PorAccidenteRadioactivo() {}
+
+    public PorAccidenteRadioactivo(String nombre, String poder, String debilidad, String tipoPersonaje,
+            int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron, int edadAlMomentoAccidente, String tipoAccidente) {
+        super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
+        this.edadAlMomentoAccidente = edadAlMomentoAccidente;
+        this.tipoAccidente = tipoAccidente;
+    }
+
     public int getEdadAlMomentoAccidente() {
         return edadAlMomentoAccidente;
     }
@@ -23,8 +32,8 @@ public class PorAccidenteRadioactivo extends Persona {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("PorAccidenteRadioactivo{edadAlMomentoAccidente=").append(edadAlMomentoAccidente);
-        sb.append(", tipoAccidente=").append(tipoAccidente);
+        sb.append("PorAccidenteRadioactivo { \nEdad Al Momento de Accidente = ").append(edadAlMomentoAccidente);
+        sb.append(", \nTipo Accidente = ").append(tipoAccidente);
         sb.append('}');
         return sb.toString();
     }
