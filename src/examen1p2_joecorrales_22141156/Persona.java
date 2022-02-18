@@ -1,14 +1,14 @@
 package examen1p2_joecorrales_22141156;
 
 public abstract class Persona {
-    String nombre;
-    String poder;
-    String debilidad;
-    String tipoPersonaje;
-    int fuerza;
-    int habilidadmental;
-    int habilidadFisica;
-    boolean tieneEscuadron;
+    protected String nombre;
+    protected String poder;
+    protected String debilidad;
+    protected String tipoPersonaje;
+    protected int fuerza;
+    protected int habilidadmental;
+    protected int habilidadFisica;
+    protected boolean tieneEscuadron;
 
     public Persona() {}
     
