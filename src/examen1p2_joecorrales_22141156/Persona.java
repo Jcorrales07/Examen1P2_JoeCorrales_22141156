@@ -12,7 +12,7 @@ public abstract class Persona {
 
     public Persona() {}
     
-    public Persona(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron) {
+    public Persona(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica) {
         this.nombre = nombre;
         this.poder = poder;
         this.debilidad = debilidad;
@@ -20,7 +20,7 @@ public abstract class Persona {
         this.fuerza = fuerza;
         this.habilidadmental = habilidadmental;
         this.habilidadFisica = habilidadFisica;
-        this.tieneEscuadron = tieneEscuadron;
+        this.tieneEscuadron = false;
     }
 
     public String getNombre() {

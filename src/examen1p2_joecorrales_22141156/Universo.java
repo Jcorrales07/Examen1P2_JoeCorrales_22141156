@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class Universo {
     protected String nombre;
-    ArrayList<Escuadron> squads;
+    ArrayList<Escuadron> escuadron;
 
-    public Universo(String nombre, ArrayList<Escuadron> squads) {
+    public Universo(String nombre) {
         this.nombre = nombre;
-        this.squads = squads;
+        escuadron = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -19,19 +19,19 @@ public class Universo {
         this.nombre = nombre;
     }
 
-    public ArrayList<Escuadron> getSquads() {
-        return squads;
+    public ArrayList<Escuadron> getnEscuadron() {
+        return escuadron;
     }
 
-    public void setSquads(ArrayList<Escuadron> squads) {
-        this.squads = squads;
+    public void setEscuadron(ArrayList<Escuadron> escuadron) {
+        this.escuadron = escuadron;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Universo { \nNombre = ").append(nombre);
-        sb.append(", \nSquads = ").append(squads);
+        sb.append(", \nEscuadron = ").append(escuadron);
         sb.append("\n}");
         return sb.toString();
     }

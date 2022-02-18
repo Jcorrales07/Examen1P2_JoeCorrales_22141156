@@ -7,23 +7,23 @@ import java.util.Scanner;
 public class Examen1P2_JoeCorrales_22141156 {
     static ArrayList<Persona> heroes = new ArrayList<>();
     static ArrayList<Persona> villanos = new ArrayList<>();
+    static ArrayList<Escuadron> escuadrones = new ArrayList<>();
+    static ArrayList<Universo> universos = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
+        main();
+    }
+    
+    private static void main() {
         do {
             switch (menu()) {
-                case 1: { /* opcionesUniverso(); */ } break;
-                case 2: { /* opcionesUniverso(); */ } break;
-                case 3: { /* opcionesUniverso(); */ } break;
+                case 1: { opcionesUniverso(); } break;
+                case 2: { /* opcionesEscuadron(); */ } break;
+                case 3: { /* opcionesPersona(); */ } break;
                 case 4: { System.exit(0); } break;
-//                case 1: { /*crearUniverso();*/ } break;
-//                case 2: { /*modificarUniverso();*/ } break;
-//                case 3: { /*listarUniverso();*/ } break;
-//                case 4: { /**/ } break;
             }
         } while (true);
-        
     }
     
     //Menu
@@ -33,6 +33,7 @@ public class Examen1P2_JoeCorrales_22141156 {
                 + "\n1. Opciones Universo"
                 + "\n2. Opciones Escuadron"
                 + "\n3. Opciones Persona"
+                + "\n4. Salir"
                 + "\nOpcion: ");
         return opcion;
     }
@@ -44,17 +45,33 @@ public class Examen1P2_JoeCorrales_22141156 {
                 + "\n2. Modificar Universo"
                 + "\n3. Eliminar Universo"
                 + "\n4. Listar Universo"
-                + "\n0. Salir");
+                + "\n0. Salir"
+                + "\nOpcion: ");
         return opcion;
     }
     
     private static void crudUniverso(int opcion) {
         switch(opcion) {
-            
+            case 1: { 
+                System.out.println("\n[=== Creacion de Universo ===]");
+                String nombre = myNextString("Nombre del universo: ");
+                if(verificarUniverso(nombre)) universos.add(new Universo(nombre));
+            } break;
+            case 2: { 
+                System.out.println("\n[=== Modificacion de Universo ===]");
+                String nombre = myNextString("Nombre del universo a modificar: ");
+                if(verificarUniverso(nombre) && (buscarUniverso(nombre) != null))
+                    buscarUniverso(nombre).setNombre(nombre);
+            } break;
+            case 3: { listarUniverso(); } break;
+            case 4: { /**/ } break;
+            case 0: { main(); } break;
+            default: 
+                System.out.println("Opcion invalida!");
         }
     }
     
-    
+    {
 //    private static void crearPersonaje() {
 //        System.out.println("\n[=== Crear personaje ===]");
 //        int opcion = myNextInt("\n[=== Tipo de personaje ===]"
@@ -109,7 +126,34 @@ public class Examen1P2_JoeCorrales_22141156 {
 //            default:
 //                System.out.println("No disponible");
 //        }
-//    } 
+//    }
+    }
+    
+    private static boolean verificarUniverso(String nombre) {
+        for(Universo universo : universos) {
+            if (universo.getNombre().equalsIgnoreCase(nombre)) {
+                System.out.println("Ya existe un universo con ese nombre!");
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    private static Universo buscarUniverso(String nombre) {
+        for (Universo universo : universos) {
+            if(universo.getNombre().equalsIgnoreCase(nombre)) 
+                return universo;
+        }
+        return null;
+    }
+    
+    private static void listarUniverso() {
+        int i = 1;
+        for (Universo universo : universos) 
+            System.out.println("\n["+i+"] " + universo.toString()+"\n");
+    }
+    
+    
     
     private static boolean verificarPersonaje(String nPersonaje, ArrayList<Persona> personajes) {
         for(Persona personaje : personajes) {

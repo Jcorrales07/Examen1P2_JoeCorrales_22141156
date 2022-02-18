@@ -5,14 +5,12 @@ import java.util.ArrayList;
 public class Escuadron {
     protected String nombre;
     protected String lugarBase;
-    protected Persona lider;
     protected String tipoPersonaje;
     ArrayList<Persona> miembros;
 
-    public Escuadron(String nombre, String lugarBase, Persona lider, String tipoPersonaje, ArrayList<Persona> miembros) {
+    public Escuadron(String nombre, String lugarBase, String tipoPersonaje, ArrayList<Persona> miembros) {
         this.nombre = nombre;
         this.lugarBase = lugarBase;
-        this.lider = lider;
         this.tipoPersonaje = tipoPersonaje;
         this.miembros = miembros;
     }
@@ -31,14 +29,6 @@ public class Escuadron {
 
     public void setLugarBase(String lugarBase) {
         this.lugarBase = lugarBase;
-    }
-
-    public Persona getLider() {
-        return lider;
-    }
-
-    public void setLider(Persona lider) {
-        this.lider = lider;
     }
 
     public String getTipoPersonaje() {
@@ -62,7 +52,6 @@ public class Escuadron {
         StringBuilder sb = new StringBuilder();
         sb.append("Escuadron { \nNombre = ").append(nombre);
         sb.append(", \nLugar Base = ").append(lugarBase);
-        sb.append(", \nLider = ").append(lider);
         sb.append(", \nTipo Personaje = ").append(tipoPersonaje);
         sb.append(", \nMiembros = ").append(miembros);
         sb.append("\n}");
