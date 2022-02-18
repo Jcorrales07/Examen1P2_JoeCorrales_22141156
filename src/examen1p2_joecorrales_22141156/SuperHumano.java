@@ -25,6 +25,4 @@ public class SuperHumano extends Persona {
         sb.append('}');
         return sb.toString();
     }
-
-    
 }
