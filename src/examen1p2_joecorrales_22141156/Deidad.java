@@ -33,4 +33,14 @@ public class Deidad extends Extraterreste {
     void findChance(Persona p1, Persona p2) {
         
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());    
+        sb.append("Deidad { \ntieneCreyentes = ").append(tieneCreyentes);
+        sb.append(", \nReligion Mitologica = ").append(religionMitologica);
+        sb.append("\n}");
+        return sb.toString();
+    }
 }

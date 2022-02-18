@@ -12,4 +12,6 @@ public class PersonaNormal extends Persona {
     void findChance(Persona p1, Persona p2) {
         
     }
+    
+    
 }

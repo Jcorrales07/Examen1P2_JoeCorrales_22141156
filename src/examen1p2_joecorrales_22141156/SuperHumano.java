@@ -12,9 +12,19 @@ public class SuperHumano extends Persona {
         this.superPoder = superPoder;
     }
     
-    
     @Override
     void findChance(Persona p1, Persona p2) {
 
-    }       
+    }   
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append("SuperHumano{ \nSuper Poder=").append(superPoder);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    
 }

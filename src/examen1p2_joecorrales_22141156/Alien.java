@@ -24,4 +24,13 @@ public class Alien extends Extraterreste {
     void findChance(Persona p1, Persona p2) {
         
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(super.toString());
+        sb.append("Alien { \nPlaneta=").append(planeta);
+        sb.append("\n}");
+        return sb.toString();
+    }
 }

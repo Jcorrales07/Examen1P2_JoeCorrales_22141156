@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Mutante extends Persona {
     public ArrayList<String> factoresMutantes;
 
-    public Mutante() {
-    }
+    public Mutante() {}
 
     public Mutante(String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica, boolean tieneEscuadron) {
         super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
@@ -15,6 +14,6 @@ public class Mutante extends Persona {
 
     @Override
     void findChance(Persona p1, Persona p2) {
-        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 }

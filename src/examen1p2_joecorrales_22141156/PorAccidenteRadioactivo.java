@@ -32,9 +32,10 @@ public class PorAccidenteRadioactivo extends Persona {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("PorAccidenteRadioactivo { \nEdad Al Momento de Accidente = ").append(edadAlMomentoAccidente);
+        sb.append("PorAccidenteRadioactivo { ").append(super.toString());
+        sb.append(", \nEdad Al Momento de Accidente =  ").append(edadAlMomentoAccidente);
         sb.append(", \nTipo Accidente = ").append(tipoAccidente);
-        sb.append('}');
+        sb.append("\n}");
         return sb.toString();
     }
 
