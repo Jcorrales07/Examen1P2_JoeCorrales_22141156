@@ -1,12 +1,16 @@
 package examen1p2_joecorrales_22141156;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 /** @author Joe Corrales */
 public class Examen1P2_JoeCorrales_22141156 {
     static ArrayList<Persona> heroes = new ArrayList<>();
     static ArrayList<Persona> villanos = new ArrayList<>();
+    
+    
+    static ArrayList<Persona> personajes = new ArrayList<>();
     static ArrayList<Escuadron> escuadrones = new ArrayList<>();
     static ArrayList<Universo> universos = new ArrayList<>();
     static Scanner input = new Scanner(System.in);
@@ -20,7 +24,7 @@ public class Examen1P2_JoeCorrales_22141156 {
             switch (menu()) {
                 case 1: { opcionesUniverso(); } break;
                 case 2: { opcionesEscuadron(); } break;
-                case 3: { /* opcionesPersona(); */ } break;
+                case 3: { opcionesPersonajes(); } break;
                 case 4: { System.exit(0); } break;
             }
         } while (true);
@@ -48,18 +52,6 @@ public class Examen1P2_JoeCorrales_22141156 {
                 + "\n0. Salir"
                 + "\nOpcion: ");
         crudUniverso(opcion);
-    }
-    
-    private static void opcionesEscuadron() {
-        int opcion = myNextInt("\n[=== Menu Universo ===]"
-                + "\nOpciones: "
-                + "\n1. Crear Escuadron"
-                + "\n2. Modificar Escuadron"
-                + "\n3. Eliminar Escuadron"
-                + "\n4. Listar Escuadron"
-                + "\n0. Salir"
-                + "\nOpcion: ");
-        crudEscuadron(opcion);
     }
     
     private static void crudUniverso(int opcion) {
@@ -108,72 +100,17 @@ public class Examen1P2_JoeCorrales_22141156 {
         }
     }
     
+    //verificarUniverso()
     {
-//    private static void crearPersonaje() {
-//        System.out.println("\n[=== Crear personaje ===]");
-//        int opcion = myNextInt("\n[=== Tipo de personaje ===]"
-//                + "\n1. Persona Normal"
-//                + "\n2. Super Humano"
-//                + "\n3. Accidente radioactivo"
-//                + "\n4. Mutante"
-//                + "\n5. Deidad"
-//                + "\n6. Alien"
-//                + "\nOpcion: ");
-//        tipo(opcion);
-//    }
-    
-//    private static void tipo(int opcion) {
-//        System.out.println("Ingrese el apellido para verificar");
-//        String apellido = myNextString("Apellido: ");
-//        String nombre = null; int edad = 0; int ptsVida = 0;
-//        
-//        if (verificarApellido(personaje)) {
-//            nombre = myNextString("Nombre: ");
-//            edad = myNextInt("Edad: ");
-//            ptsVida = myNextInt("Puntos de vida: ");
+//    private static boolean verificarUniverso(String nombre) {
+//        for(Universo universo : universos) {
+//            if (universo.getNombre().equalsIgnoreCase(nombre)) {
+//                System.out.println("Ya existe un universo con ese nombre!");
+//                return false;
+//            }
 //        }
-//        
-//        switch (opcion) {
-//            case 1: {
-//                PersonaNormal a = new PersonaNormal(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tieneEscuadron);
-//                agregarAldeano(a);
-//            }
-//                break;
-//            case 2: {
-//                String discurso = myNextString("Ingresa el discurso: ");
-//                Pacifista al = new Pacifista(nombre, apellido, edad, ptsVida, discurso);
-//                agregarAldeano(al);
-//            }
-//                break;
-//            case 3: {
-//                Herrero ald = new Herrero(nombre, apellido, edad, ptsVida);
-//                agregarAldeano(ald);
-//            }
-//                break;                 
-//            case 4: {
-//                Agronomo alde = new Agronomo(nombre, apellido, edad, ptsVida);
-//                agregarAldeano(alde);
-//            }
-//                break;
-//            case 5: {
-//                Explosivo aldea = new Explosivo(nombre, apellido, edad, ptsVida);
-//                agregarAldeano(aldea);
-//            }
-//                break;
-//            default:
-//                System.out.println("No disponible");
-//        }
+//        return true;
 //    }
-    }
-    
-    private static boolean verificarUniverso(String nombre) {
-        for(Universo universo : universos) {
-            if (universo.getNombre().equalsIgnoreCase(nombre)) {
-                System.out.println("Ya existe un universo con ese nombre!");
-                return false;
-            }
-        }
-        return true;
     }
     
     private static Universo buscarUniverso(String nombre) {
@@ -190,6 +127,19 @@ public class Examen1P2_JoeCorrales_22141156 {
             System.out.println("\n["+i+"] " + universo.toString()+"\n");
             i++;
         }
+    }
+    
+    private static void opcionesEscuadron() {
+        int opcion = myNextInt("\n[=== Menu Universo ===]"
+                + "\nOpciones: "
+                + "\n1. Crear Escuadron"
+                + "\n2. Modificar Escuadron"
+                + "\n3. Eliminar Escuadron"
+                + "\n4. Listar Escuadron"
+                + "\n5. Simular Batalla"
+                + "\n0. Salir"
+                + "\nOpcion: ");
+        crudEscuadron(opcion);
     }
     
     private static void crudEscuadron(int opcion) {
@@ -260,6 +210,123 @@ public class Examen1P2_JoeCorrales_22141156 {
         }
     }
     
+    private static void opcionesPersonajes() {
+        int opcion = myNextInt("\n[=== Menu Personajes ===]"
+                + "\nOpciones: "
+                + "\n1. Crear Personaje"
+                + "\n2. Modificar Personaje"
+                + "\n3. Eliminar Personaje"
+                + "\n4. Listar Personaje"
+                + "\n0. Salir"
+                + "\nOpcion: ");
+        crudPersonajes(opcion);
+    }
+    
+    private static void tipo(int opcion) {
+        String nombre = myNextString("Nombre: ");
+        int tipo = myNextInt("Es 1) heroe o  2) villano?: ");
+        String poder = myNextString("Poder: ");
+        String debilidad = myNextString("Debilidad: ");
+        String tipoPersonaje = "";
+        int fuerza = myNextInt("Puntos de fuerza: ");
+        int habilidadmental = myNextInt("Puntos de habilidad mental: ");
+        int habilidadFisica = myNextInt("Puntos de habilidad Fisica: ");
+        String tiene = myNextString("Tiene escuadron? [true/false]: ");
+        Boolean tieneEscuadron = Boolean.parseBoolean(tiene);
+        switch (opcion) {
+            case 1: {
+                PersonaNormal p = new PersonaNormal(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
+                if(tipo == 1) tipoPersonaje = "Heroe";
+                else tipoPersonaje = "Villano";
+                p.setTieneEscuadron(tieneEscuadron);
+                p.setTipoPersonaje(tipoPersonaje);
+                personajes.add(p);
+            }
+                break;
+                
+            case 2: {
+                String superPoder = myNextString("Super poder: ");
+                SuperHumano sh = new SuperHumano(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, superPoder);
+                if(tipo == 1) tipoPersonaje = "Heroe";
+                else tipoPersonaje = "Villano";
+                sh.setTieneEscuadron(tieneEscuadron);
+                sh.setTipoPersonaje(tipoPersonaje);
+                personajes.add(sh);
+            }
+                break;
+                
+            case 3: {
+                Herrero ald = new Herrero(nombre, apellido, edad, ptsVida);
+            }
+                break;   
+                
+            case 4: {
+                Agronomo alde = new Agronomo(nombre, apellido, edad, ptsVida);
+            }
+                break;
+                
+            case 5: {
+                Explosivo aldea = new Explosivo(nombre, apellido, edad, ptsVida);
+            }
+                break;
+                
+            case 6: {
+                opcionesPersonajes();
+            }
+                break;
+            default:
+                System.out.println("No disponible");
+        }
+    }
+    
+    
+    private static void crudPersonajes(int opcion) {
+        switch(opcion) {
+            case 1: { 
+                System.out.println("\n[=== Creacion de Personaje ===]");
+                int op = myNextInt("[=== Tipo de Personaje ===]"
+                        + "\n1) Persona normal"
+                        + "\n2) Super Humano"
+                        + "\n3) Accidente Radioactivo"
+                        + "\n4) Mutante"
+                        + "\n5) Deidad"
+                        + "\n6) Alien"
+                        + "\n0) Salir"
+                        + "\nOpcion: ");
+                tipo(op);
+            } break;
+            
+            case 2: { 
+                System.out.println("\n[=== Modificacion de Universo ===]");
+//                String nombre = myNextString("Nombre del universo a modificar: ");
+//                if((buscarUniverso(nombre) != null)) {
+//                    String nombre2 = myNextString("Nuevo nombre del universo: ");
+//                    buscarUniverso(nombre).setNombre(nombre2);
+//                    System.out.println("Universo modificado!");
+//                }
+//                opcionesUniverso();
+            } break;
+            
+            case 3: { 
+                System.out.println("\n[=== Eliminar un universo ===]");
+//                System.out.println("\nSe imprimiran los universos...");
+//                listarUniverso();
+//                int i = myNextInt("Ingrese la posicion a borrar: ");
+//                universos.remove(i);
+//                opcionesUniverso();
+            } break;
+            
+            case 4: { 
+                System.out.println("[=== Lista ===]");
+//                listarUniverso();
+//                opcionesUniverso();
+            } break;
+            
+            case 0: { main(); } break;
+            
+            default: System.out.println("Opcion invalida!");
+        }
+    }
     
     private static boolean verificarPersonaje(String nPersonaje, ArrayList<Persona> personajes) {
         for(Persona personaje : personajes) {
