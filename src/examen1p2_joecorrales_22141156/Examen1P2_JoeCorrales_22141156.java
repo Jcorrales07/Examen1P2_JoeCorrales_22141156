@@ -251,8 +251,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 SuperHumano sh = new SuperHumano(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, superPoder);
                 sh.setTieneEscuadron(tieneEscuadron);
                 sh.setTipoPersonaje(tipoPersonaje);
-                if(tipo == 1) heroes.add(p);
-                else villanos.add(p);
+                if(tipo == 1) heroes.add(sh);
+                else villanos.add(sh);
                 personajes.add(sh);
             }
                 break;
@@ -263,8 +263,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 PorAccidenteRadioactivo ar = new PorAccidenteRadioactivo(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, edad, tipoA);
                 ar.setTieneEscuadron(tieneEscuadron);
                 ar.setTipoPersonaje(tipoPersonaje);
-                if(tipo == 1) heroes.add(p);
-                else villanos.add(p);
+                if(tipo == 1) heroes.add(ar);
+                else villanos.add(ar);
                 personajes.add(ar);
             }
                 break;   
@@ -273,8 +273,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 Mutante m = new Mutante(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
                 m.setTieneEscuadron(tieneEscuadron);
                 m.setTipoPersonaje(tipoPersonaje);
-                if(tipo == 1) heroes.add(p);
-                else villanos.add(p);
+                if(tipo == 1) heroes.add(m);
+                else villanos.add(m);
                 personajes.add(m);
             }
                 break;
