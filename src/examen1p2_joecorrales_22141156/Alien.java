@@ -3,11 +3,10 @@ package examen1p2_joecorrales_22141156;
 public class Alien extends Extraterreste {
     protected String planeta;
 
-    public Alien(String planeta) {
-        this.planeta = planeta;
-    }
+    public Alien() {}
 
-    public Alien(String planeta, String nombre, String poder, String debilidad, String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica) {
+    public Alien(String planeta, String nombre, String poder, String debilidad,
+            String tipoPersonaje, int fuerza, int habilidadmental, int habilidadFisica) {
         super(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
         this.planeta = planeta;
     }

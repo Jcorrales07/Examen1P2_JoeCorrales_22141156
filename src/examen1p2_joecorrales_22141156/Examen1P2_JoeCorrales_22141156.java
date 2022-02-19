@@ -240,6 +240,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 PersonaNormal p = new PersonaNormal(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
                 p.setTieneEscuadron(tieneEscuadron);
                 p.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(p);
+                else villanos.add(p);
                 personajes.add(p);
             }
                 break;
@@ -249,6 +251,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 SuperHumano sh = new SuperHumano(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, superPoder);
                 sh.setTieneEscuadron(tieneEscuadron);
                 sh.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(p);
+                else villanos.add(p);
                 personajes.add(sh);
             }
                 break;
@@ -259,6 +263,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 PorAccidenteRadioactivo ar = new PorAccidenteRadioactivo(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, edad, tipoA);
                 ar.setTieneEscuadron(tieneEscuadron);
                 ar.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(p);
+                else villanos.add(p);
                 personajes.add(ar);
             }
                 break;   
@@ -267,6 +273,8 @@ public class Examen1P2_JoeCorrales_22141156 {
                 Mutante m = new Mutante(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
                 m.setTieneEscuadron(tieneEscuadron);
                 m.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(p);
+                else villanos.add(p);
                 personajes.add(m);
             }
                 break;
@@ -278,11 +286,20 @@ public class Examen1P2_JoeCorrales_22141156 {
                 Deidad d = new Deidad(nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica, tCreyentes, rMitlogica);
                 d.setTieneEscuadron(tieneEscuadron);
                 d.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(d);
+                else villanos.add(d);
                 personajes.add(d);
             }
                 break;
                 
             case 6: {
+                String planeta = myNextString("Planeta: ");
+                Alien a = new Alien(planeta, nombre, poder, debilidad, tipoPersonaje, fuerza, habilidadmental, habilidadFisica);
+                a.setTieneEscuadron(tieneEscuadron);
+                a.setTipoPersonaje(tipoPersonaje);
+                if(tipo == 1) heroes.add(a);
+                else villanos.add(a);
+                personajes.add(a);
                 opcionesPersonajes();
             }
                 break;
@@ -306,37 +323,46 @@ public class Examen1P2_JoeCorrales_22141156 {
                         + "\n0) Salir"
                         + "\nOpcion: ");
                 tipo(op);
+                opcionesPersonajes();
             } break;
             
             case 2: { 
-                System.out.println("\n[=== Modificacion de Universo ===]");
+                System.out.println("\n[=== Modificacion de Personaje ===]");
 //                String nombre = myNextString("Nombre del universo a modificar: ");
 //                if((buscarUniverso(nombre) != null)) {
 //                    String nombre2 = myNextString("Nuevo nombre del universo: ");
 //                    buscarUniverso(nombre).setNombre(nombre2);
 //                    System.out.println("Universo modificado!");
 //                }
-//                opcionesUniverso();
+                opcionesPersonajes();
             } break;
             
             case 3: { 
-                System.out.println("\n[=== Eliminar un universo ===]");
+                System.out.println("\n[=== Eliminar un Personaje ===]");
 //                System.out.println("\nSe imprimiran los universos...");
 //                listarUniverso();
 //                int i = myNextInt("Ingrese la posicion a borrar: ");
 //                universos.remove(i);
-//                opcionesUniverso();
+                opcionesPersonajes();
             } break;
             
             case 4: { 
-                System.out.println("[=== Lista ===]");
-//                listarUniverso();
-//                opcionesUniverso();
+                System.out.println("\n[=== Lista de Personajes ===]");
+                listarPersonajes();
+                opcionesPersonajes();
             } break;
             
             case 0: { main(); } break;
             
             default: System.out.println("Opcion invalida!");
+        }
+    }
+    
+    private static void listarPersonajes() {
+        int i = 0;
+        for (Persona personaje : personajes) {
+            System.out.println("\n["+i+"] " + personaje.toString()+"\n");
+            i++;
         }
     }
     
